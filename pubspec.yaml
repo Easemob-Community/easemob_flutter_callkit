@@ -3,9 +3,9 @@ description: >-
   A Flutter plugin for integrating Easemob (Hyphenate) CallKit on iOS and Android.
   Supports 1v1 audio/video calls and group calls with callback events.
 version: 1.1.2
-homepage: https://github.com/easemob/easemob_flutter_callkit
-repository: https://github.com/easemob/easemob_flutter_callkit
-issue_tracker: https://github.com/easemob/easemob_flutter_callkit/issues
+homepage: https://github.com/Easemob-Community/easemob_flutter_callkit
+repository: https://github.com/Easemob-Community/easemob_flutter_callkit
+issue_tracker: https://github.com/Easemob-Community/easemob_flutter_callkit/issues
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
