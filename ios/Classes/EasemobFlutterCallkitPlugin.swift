@@ -148,6 +148,14 @@ extension EasemobFlutterCallkitPlugin: FlutterStreamHandler {
 }
 
 extension EasemobFlutterCallkitPlugin: CallServiceListener {
+    public func onReceivedCall(callType: CallType, userId: String, extensionInfo: [String : Any]?) {
+        sendEvent([
+            "event": "onReceivedCall",
+            "callType": callType.rawValue,
+            "userId": userId,
+            "ext": extensionInfo
+        ])
+    }
     public func didOccurError(error: CallError) {
         sendEvent([
             "event": "onCallError",

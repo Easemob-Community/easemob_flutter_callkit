@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
 
   final _appKeyController = TextEditingController();
   final _usernameController = TextEditingController();
-  final _tokenController = TextEditingController();
+  final _pwdController = TextEditingController();
   final _userIdController = TextEditingController();
   final _groupIdController = TextEditingController();
 
@@ -96,7 +96,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> _login() async {
     final username = _usernameController.text.trim();
-    final token = _tokenController.text.trim();
+    final token = _pwdController.text.trim();
     if (username.isEmpty || token.isEmpty) {
       _showSnackBar('Please enter username and token');
       return;
@@ -175,7 +175,7 @@ class _MyAppState extends State<MyApp> {
     _eventSubscription?.cancel();
     _appKeyController.dispose();
     _usernameController.dispose();
-    _tokenController.dispose();
+    _pwdController.dispose();
     _userIdController.dispose();
     _groupIdController.dispose();
     super.dispose();
@@ -222,9 +222,9 @@ class _MyAppState extends State<MyApp> {
                 ),
               ),
               TextField(
-                controller: _tokenController,
+                controller: _pwdController,
                 decoration: const InputDecoration(
-                  labelText: 'Token',
+                  labelText: 'Password',
                 ),
               ),
               const SizedBox(height: 8),

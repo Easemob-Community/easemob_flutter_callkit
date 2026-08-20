@@ -324,7 +324,7 @@ CallKitConfig(
 
 | 事件类型 | 说明 | data 字段 |
 |----------|------|-----------|
-| `onReceivedCall` | 收到来电 | `caller`（呼叫方 ID）、`callType`（0=语音, 1=视频）、`ext`（扩展信息） |
+| `onReceivedCall` | 收到来电 | `userId`（呼叫方 ID）、`callType`（0=语音, 1=视频）、`ext`（扩展信息） |
 | `onEndCallWithReason` | 通话结束 | `reason`（结束原因）、`callTime`（通话时长，秒） |
 | `onCallError` | 通话异常 | `error`（错误描述）、`errorCode`（错误码） |
 | `onRemoteUserJoined` | 远端用户加入 | `userId`（用户 ID）、`streamId`（流 ID） |
@@ -338,6 +338,31 @@ CallKitConfig(
 - **初始化顺序**：必须先通过 `im_flutter_sdk` 完成 `EMClient.getInstance.init()`，再调用 `EasemobFlutterCallkit.initCallKit()`。
 - **Android 14+**：前台服务权限（`FOREGROUND_SERVICE_CAMERA`、`FOREGROUND_SERVICE_MICROPHONE` 等）必须在 `AndroidManifest.xml` 中声明，否则通话页面可能无法正常唤起。
 - **iOS 后台模式**：请在 Xcode 中开启 **Audio, AirPlay, and Picture in Picture** 以及 **Voice over IP** 后台模式（Signing & Capabilities → Background Modes）。
+
+---
+
+## 特殊说明
+
+- 原生安卓callkit 和 原生iOScallkit对于音视频所产生的消息有所不同，需要注意
+- 原生安卓callkit会在通话结束之后把数据直接写到文本内容里面
+![image](images/1.jpeg)
+- iOS原生callkit通话结束把通话的状态放在消息的ext扩展里面
+![image](images/2.jpeg)
+``` swift
+CallEndReason: UInt {
+    case hangup // 挂断通话
+    case cancel // 取消呼叫
+    case remoteCancel // 对方取消呼叫
+    case refuse // 对方拒绝呼叫
+    case remoteRefuse // 对方拒绝呼叫
+    case busy // 忙碌
+    case noResponse // 无响应
+    case remoteNoResponse // 对方无响应
+    case handleOnOtherDevice // 已在其他设备处理
+    case abnormalEnd // 异常结束
+}
+```
+
 
 ---
 
