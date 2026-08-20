@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'easemob_flutter_callkit'
-  s.version          = '1.0.0'
+  s.version          = '1.1.2'
   s.summary          = 'Easemob CallKit Flutter plugin'
   s.description      = 'A Flutter plugin for integrating Easemob CallKit on iOS and Android.'
   s.homepage         = 'https://github.com/easemob/easemob_flutter_callkit'

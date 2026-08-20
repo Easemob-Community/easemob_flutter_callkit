@@ -1,3 +1,9 @@
+## 1.1.2
+
+- iOS: Add `onReceivedCall` callback event to notify the Flutter layer when an incoming call is received.
+- Fix `onReceivedCall` `caller` field to `userId` in the event payload.
+- README: Add notes on the differences between native Android/iOS CallKit end-call messages.
+
 ## 1.1.1
 
 - Bump native CallKit dependencies to 4.23.0 (Android `chat-call-kit` and iOS `EaseCallUIKit`).
